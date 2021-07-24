@@ -14,7 +14,7 @@ export default class Home extends Component<HomeProps> {
     return (
       <div className="container">
         <h3 className="text-center mt-4">Welcome!</h3>
-        <p className="text-center">What would you like to do?</p>
+        <p className="text-center fs-4">What would you like to do?</p>
         <div className="text-center">
           <button className="btn btn-primary me-3" type="button">
             Start a new job hunt
