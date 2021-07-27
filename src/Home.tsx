@@ -21,6 +21,7 @@ const Home = () => {
     let nextJobId = newMap.size + 1;
     newMap.set(nextJobId, job);
     updateJobMap(newMap);
+    alert("Job info saved!");
   };
 
   if (displayWelcome) {
