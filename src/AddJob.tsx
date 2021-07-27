@@ -1,11 +1,18 @@
 import React from "react";
+import Job from "./Job";
 
 interface AddJobProps {
   handleWelcome: any;
   handleAddScreen: any;
+  map: Map<number, Job>;
 }
 
 const AddJob = (props: AddJobProps) => {
+  const setJobToMap = (map: Map<number, Job>) => {
+    let nextJobId = map.size + 1;
+    // TODO: finish function
+  };
+
   return (
     <div className="container">
       <h3 className="text-center mt-4">Add a Job</h3>
