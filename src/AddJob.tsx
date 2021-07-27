@@ -1,6 +1,11 @@
 import React from "react";
 
-const AddJob = () => {
+interface AddJobProps {
+  handleWelcome: any;
+  handleAddScreen: any;
+}
+
+const AddJob = (props: AddJobProps) => {
   return (
     <div className="container">
       <h3 className="text-center mt-4">Add a Job</h3>
@@ -105,6 +110,17 @@ const AddJob = () => {
           aria-describedby="basic-addon1"
         />
       </div>
+
+      <button
+        onClick={() => {
+          props.handleWelcome();
+          props.handleAddScreen();
+        }}
+        type="button"
+        className="btn btn-secondary me-2"
+      >
+        Go Back
+      </button>
 
       <button type="button" className="btn btn-success">
         Save Job Info
