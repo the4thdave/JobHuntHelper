@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 interface JobFormProps {
   handleWelcome: any;
-  handleAddScreen: any;
+  handleAdd: any;
+  handleSelect: any;
   handleJob: any;
 }
 
@@ -89,7 +90,7 @@ const JobForm = (props: JobFormProps) => {
       <button
         onClick={() => {
           props.handleWelcome();
-          props.handleAddScreen();
+          props.handleAdd();
         }}
         type="button"
         className="btn btn-secondary me-2"
@@ -98,9 +99,10 @@ const JobForm = (props: JobFormProps) => {
       </button>
 
       <button
-        onClick={() =>
-          props.handleJob(company, jobTitle, city, locState, strDateApplied)
-        }
+        onClick={() => {
+          props.handleJob(company, jobTitle, city, locState, strDateApplied);
+          props.handleSelect();
+        }}
         type="button"
         className="btn btn-success"
       >

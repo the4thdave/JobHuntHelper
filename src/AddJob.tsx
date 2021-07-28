@@ -3,7 +3,8 @@ import JobForm from "./JobForm";
 
 interface AddJobProps {
   handleWelcome: any;
-  handleAddScreen: any;
+  handleAdd: any;
+  handleSelect: any;
   handleJob: any;
 }
 
@@ -34,7 +35,8 @@ const AddJob = (props: AddJobProps) => {
       </div>
       <JobForm
         handleWelcome={props.handleWelcome}
-        handleAddScreen={props.handleAddScreen}
+        handleAdd={props.handleAdd}
+        handleSelect={props.handleSelect}
         handleJob={props.handleJob}
       />
     </div>

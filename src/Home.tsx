@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import Welcome from "./Welcome";
 import AddJob from "./AddJob";
 import Job from "./Job";
+import SelectAction from "./SelectAction";
 
 const Home = () => {
-  const [displayWelcome, toggleWelcome] = useState(true); // can change to false for testing
-  const [displayAddScreen, toggleAddScreen] = useState(false); // can change to true for testing
+  // State
+  const [displayWelcome, toggleWelcome] = useState(true);
+  const [displayAdd, toggleAdd] = useState(false);
+  const [displaySelect, toggleSelect] = useState(false);
   const [jobMap, updateJobMap] = useState(new Map());
 
+  // Helper Functions
   const createJobAndSetToMap = (
     company: string,
     jobTitle: string,
@@ -24,22 +28,39 @@ const Home = () => {
     alert("Job info saved!");
   };
 
+  const handleSelect = () => {
+    if (displayWelcome || displayAdd) {
+      toggleWelcome(false);
+      toggleAdd(false);
+      toggleSelect(true);
+    } else {
+      toggleWelcome(true);
+      toggleAdd(false);
+      toggleSelect(false);
+    }
+  };
+
+  // Display Logic
   if (displayWelcome) {
     return (
       <Welcome
         handleWelcome={() => toggleWelcome(!displayWelcome)}
-        handleAddScreen={() => toggleAddScreen(!displayAddScreen)}
+        handleAdd={() => toggleAdd(!displayAdd)}
+        handleSelect={handleSelect}
       />
     );
-  } else if (displayAddScreen) {
+  } else if (displayAdd) {
     return (
       <AddJob
         handleWelcome={() => toggleWelcome(!displayWelcome)}
-        handleAddScreen={() => toggleAddScreen(!displayAddScreen)}
+        handleAdd={() => toggleAdd(!displayAdd)}
+        handleSelect={handleSelect}
         handleJob={createJobAndSetToMap}
       />
     );
-  } else return <div>Select action screen</div>; // Soon to be <SelectAction />
+  } else if (displaySelect) {
+    return <SelectAction />;
+  } else return <div>Blank</div>;
 };
 
 export default Home;
