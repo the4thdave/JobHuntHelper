@@ -1,5 +1,6 @@
 import React from "react";
 import Job from "../Job";
+import TableRows from "./TableRows";
 
 interface StatsProps {
   handleStats: any;
@@ -26,16 +27,16 @@ const Stats = (props: StatsProps) => {
           </tr>
         </thead>
         <tbody>
-          {/* <tr>
-            <th scope="row">1</th>
-            <td>Apple</td>
-            <td>Software Developer</td>
-            <td>San Francisco</td>
-            <td>California</td>
-            <td>1/12/21</td>
-          </tr> */}
+          <TableRows map={props.map} />
         </tbody>
       </table>
+      <button
+        onClick={() => props.handleStats()}
+        type="button"
+        className="btn btn-secondary me-2"
+      >
+        Go Back
+      </button>
     </div>
   );
 };
