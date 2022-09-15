@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Welcome from "./Welcome";
-import AddJob from "./AddJob";
-import Job from "../Job";
-import SelectAction from "./SelectAction";
-import Stats from "./Stats";
+import React, { useState } from 'react';
+import Welcome from './Welcome';
+import AddJob from './AddJob';
+import Job from '../Job';
+import SelectAction from './SelectAction';
+import Stats from './Stats';
 
 const Home = () => {
   // State
@@ -19,17 +19,17 @@ const Home = () => {
     jobTitle: string,
     city: string,
     state: string,
-    strDateApplied: string
+    strDateApplied: string,
   ) => {
     // Create job object
-    let job = new Job(company, jobTitle, city, state, strDateApplied);
+    const job = new Job(company, jobTitle, city, state, strDateApplied);
 
     // Update job Map()
-    let newMap = new Map(jobMap);
-    let nextJobId = newMap.size + 1;
+    const newMap = new Map(jobMap);
+    const nextJobId = newMap.size + 1;
     newMap.set(nextJobId, job);
     updateJobMap(newMap);
-    alert("Job info saved!");
+    alert('Job info saved!');
   };
 
   const handleSelect = () => {
@@ -73,9 +73,7 @@ const Home = () => {
       />
     );
   } else if (displaySelect) {
-    return (
-      <SelectAction handleSelect={handleSelect} handleStats={handleStats} />
-    );
+    return <SelectAction handleSelect={handleSelect} handleStats={handleStats} />;
   } else if (displayStats) {
     return <Stats handleStats={handleStats} map={jobMap} />;
   } else return <div>Blank</div>;
