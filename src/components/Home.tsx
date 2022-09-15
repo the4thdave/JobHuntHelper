@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import Welcome from './Welcome';
 import AddJob from './AddJob';
 import Job from '../Job';
 import SelectAction from './SelectAction';
 import Stats from './Stats';
 
-const Home = () => {
-  // State
-  const [displayWelcome, toggleWelcome] = useState(true);
-  const [displayAdd, toggleAdd] = useState(false);
-  const [displaySelect, toggleSelect] = useState(false);
-  const [displayStats, toggleStats] = useState(false);
-  const [jobMap, updateJobMap] = useState(new Map());
+const Home = (): JSX.Element => {
+  const [displayWelcome, toggleWelcome] = React.useState(true);
+  const [displayAdd, toggleAdd] = React.useState(false);
+  const [displaySelect, toggleSelect] = React.useState(false);
+  const [displayStats, toggleStats] = React.useState(false);
+  const [jobMap, updateJobMap] = React.useState(new Map());
 
-  // Helper Functions
   const createJobAndSetToMap = (
     company: string,
     jobTitle: string,
@@ -21,10 +19,7 @@ const Home = () => {
     state: string,
     strDateApplied: string,
   ) => {
-    // Create job object
     const job = new Job(company, jobTitle, city, state, strDateApplied);
-
-    // Update job Map()
     const newMap = new Map(jobMap);
     const nextJobId = newMap.size + 1;
     newMap.set(nextJobId, job);
@@ -54,7 +49,6 @@ const Home = () => {
     }
   };
 
-  // Display Logic
   if (displayWelcome) {
     return (
       <Welcome

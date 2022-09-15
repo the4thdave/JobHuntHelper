@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import './../custom.scss';
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   return (
     <div>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>

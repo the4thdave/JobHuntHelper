@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import Job from '../Job';
 
 interface TableRowProps {
   map: Map<number, Job>;
 }
 
-const TableRows = (props: TableRowProps) => {
+const TableRows = (props: TableRowProps): JSX.Element => {
   const tableRows = [];
 
   if (props.map.size === 0) {

@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 
 interface SelectActionProps {
-  handleSelect: any;
-  handleStats: any;
+  handleSelect: () => void;
+  handleStats: () => void;
 }
 
-const SelectAction = (props: SelectActionProps) => {
+const SelectAction = (props: SelectActionProps): JSX.Element => {
   return (
     <div className='container'>
       <h3 className='text-center mt-4'>Select an Action</h3>

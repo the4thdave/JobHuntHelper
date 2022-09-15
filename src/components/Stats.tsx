@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import Job from '../Job';
 import TableRows from './TableRows';
 
 interface StatsProps {
-  handleStats: any;
+  handleStats: () => void;
   map: Map<number, Job>;
 }
 
-const Stats = (props: StatsProps) => {
+const Stats = (props: StatsProps): JSX.Element => {
   return (
     <div className='container'>
       <h3 className='text-center mt-4'>Job Hunt Statistics</h3>

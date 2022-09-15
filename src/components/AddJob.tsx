@@ -1,14 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 import JobForm from './JobForm';
 
 interface AddJobProps {
-  handleWelcome: any;
-  handleAdd: any;
-  handleSelect: any;
-  handleJob: any;
+  handleWelcome: () => void;
+  handleAdd: () => void;
+  handleSelect: () => void;
+  handleJob: (
+    company: string,
+    jobTitle: string,
+    city: string,
+    state: string,
+    strDateApplied: string,
+  ) => void;
 }
 
-const AddJob = (props: AddJobProps) => {
+const AddJob = (props: AddJobProps): JSX.Element => {
   return (
     <div className='container'>
       <h3 className='text-center mt-4'>Add a Job</h3>
