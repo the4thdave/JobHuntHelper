@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import './../custom.scss';
 
 interface WelcomeProps {
-  handleWelcome: any;
-  handleAdd: any;
-  handleSelect: any;
+  handleWelcome: () => void;
+  handleAdd: () => void;
+  handleSelect: () => void;
 }
 
-const Welcome = (props: WelcomeProps) => {
+const Welcome = (props: WelcomeProps): JSX.Element => {
   return (
     <div className='container'>
       <h3 className='text-center mt-4'>Welcome!</h3>

@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 
 interface JobFormProps {
-  handleWelcome: any;
-  handleAdd: any;
-  handleSelect: any;
-  handleJob: any;
+  handleWelcome: () => void;
+  handleAdd: () => void;
+  handleSelect: () => void;
+  handleJob: (
+    company: string,
+    jobTitle: string,
+    city: string,
+    state: string,
+    strDateApplied: string,
+  ) => void;
 }
 
-const JobForm = (props: JobFormProps) => {
-  const [company, setCompany] = useState('');
-  const [jobTitle, setJobTitle] = useState('');
-  const [city, setCity] = useState('');
-  const [locState, setLocState] = useState('');
-  const [strDateApplied, setDateApplied] = useState('');
+const JobForm = (props: JobFormProps): JSX.Element => {
+  const [company, setCompany] = React.useState('');
+  const [jobTitle, setJobTitle] = React.useState('');
+  const [city, setCity] = React.useState('');
+  const [locState, setLocState] = React.useState('');
+  const [strDateApplied, setDateApplied] = React.useState('');
 
   return (
     <form>
