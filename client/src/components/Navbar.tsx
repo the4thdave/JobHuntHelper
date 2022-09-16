@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './../custom.scss';
 
 const Navbar = (): JSX.Element => {
   return (

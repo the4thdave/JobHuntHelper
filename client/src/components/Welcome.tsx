@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './../custom.scss';
 
 interface WelcomeProps {
   handleWelcome: () => void;
@@ -23,7 +22,11 @@ const Welcome = (props: WelcomeProps): JSX.Element => {
         >
           Start a new job hunt
         </button>
-        <button onClick={() => props.handleSelect()} className='btn btn-primary' type='button'>
+        <button
+          onClick={() => props.handleSelect()}
+          className='btn btn-primary'
+          type='button'
+        >
           Continue an existing job hunt
         </button>
       </div>

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
+    "target": "es6",
+    "module": "commonjs",
     "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
@@ -12,8 +12,8 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "outDir": "./dist"
   },
-  "include": ["src"],
-  "exclude": ["**/*.test.*", "**/__tests__/*"]
+  "include": ["client/src/**/*", "server/index.ts"]
 }

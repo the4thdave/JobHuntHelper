@@ -7,7 +7,13 @@ class Job {
   private _state: string;
   private _dateApplied: string;
 
-  constructor(company: string, jobTitle: string, city: string, state: string, dateApplied: string) {
+  constructor(
+    company: string,
+    jobTitle: string,
+    city: string,
+    state: string,
+    dateApplied: string,
+  ) {
     this._company = company;
     this._jobTitle = jobTitle;
     this._city = city;

@@ -18,7 +18,9 @@ const AddJob = (props: AddJobProps): JSX.Element => {
   return (
     <div className='container'>
       <h3 className='text-center mt-4'>Add a Job</h3>
-      <p className='text-center mt-4 fs-5'>First, enter the job description&apos;s URL:</p>
+      <p className='text-center mt-4 fs-5'>
+        First, enter the job description&apos;s URL:
+      </p>
       <div className='input-group mb-3'>
         <input
           type='text'
@@ -28,7 +30,11 @@ const AddJob = (props: AddJobProps): JSX.Element => {
           aria-describedby='button-addon2'
         />
         <div className='input-group-append'>
-          <button className='btn btn-outline-success' type='button' id='button-addon2'>
+          <button
+            className='btn btn-outline-success'
+            type='button'
+            id='button-addon2'
+          >
             Submit
           </button>
         </div>
