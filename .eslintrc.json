@@ -13,7 +13,8 @@
   "rules": {
     "no-console": 1,
     "react/jsx-uses-vars": 2,
-    "no-trailing-spaces": [1, { "skipBlankLines": true }]
+    "no-trailing-spaces": [1, { "skipBlankLines": true }],
+    "@typescript-eslint/no-var-requires": 0
   },
   "settings": {
     "react": {
