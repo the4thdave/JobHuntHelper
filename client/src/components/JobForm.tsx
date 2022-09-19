@@ -86,7 +86,7 @@ const JobForm = (props: JobFormProps): JSX.Element => {
         <input
           type='text'
           className='form-control'
-          placeholder='...'
+          placeholder='MM/DD/YYYY'
           aria-label='date applied'
           aria-describedby='basic-addon1'
           onChange={e => setDateApplied(e.target.value)}
