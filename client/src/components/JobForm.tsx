@@ -22,7 +22,9 @@ const JobForm = (props: JobFormProps): JSX.Element => {
 
   return (
     <form>
-      <p className='text-center mt-4 fs-5'>Next, complete missing information:</p>
+      <p className='text-center mt-4 fs-5'>
+        Next, complete missing information:
+      </p>
       <div className='input-group mb-3'>
         <div className='input-group-prepend'>
           <span className='input-group-text' id='basic-addon1'>

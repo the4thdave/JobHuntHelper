@@ -67,7 +67,9 @@ const Home = (): JSX.Element => {
       />
     );
   } else if (displaySelect) {
-    return <SelectAction handleSelect={handleSelect} handleStats={handleStats} />;
+    return (
+      <SelectAction handleSelect={handleSelect} handleStats={handleStats} />
+    );
   } else if (displayStats) {
     return <Stats handleStats={handleStats} map={jobMap} />;
   } else return <div>Blank</div>;

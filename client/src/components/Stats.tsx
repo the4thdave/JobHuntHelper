@@ -11,7 +11,9 @@ const Stats = (props: StatsProps): JSX.Element => {
   return (
     <div className='container'>
       <h3 className='text-center mt-4'>Job Hunt Statistics</h3>
-      <p className='text-center fs-4 mt-4'>Here is a breakdown of your job hunt:</p>
+      <p className='text-center fs-4 mt-4'>
+        Here is a breakdown of your job hunt:
+      </p>
 
       <table className='table table-bordered'>
         <thead>
@@ -28,7 +30,11 @@ const Stats = (props: StatsProps): JSX.Element => {
           <TableRows map={props.map} />
         </tbody>
       </table>
-      <button onClick={() => props.handleStats()} type='button' className='btn btn-secondary me-2'>
+      <button
+        onClick={() => props.handleStats()}
+        type='button'
+        className='btn btn-secondary me-2'
+      >
         Go Back
       </button>
     </div>
