@@ -1,17 +1,11 @@
 import * as React from 'react';
 import JobForm from './JobForm';
+import { IJob, IReqPayload } from '../types/index';
 
 interface AddJobProps {
-  handleWelcome: () => void;
-  handleAdd: () => void;
-  handleSelect: () => void;
-  handleJob: (
-    company: string,
-    jobTitle: string,
-    city: string,
-    state: string,
-    strDateApplied: string,
-  ) => void;
+  jobData: Map<number, IJob>;
+  showStats: () => void;
+  handleAdd: (payload: IReqPayload) => void;
 }
 
 const AddJob = (props: AddJobProps): JSX.Element => {
@@ -39,12 +33,7 @@ const AddJob = (props: AddJobProps): JSX.Element => {
           </button>
         </div>
       </div>
-      <JobForm
-        handleWelcome={props.handleWelcome}
-        handleAdd={props.handleAdd}
-        handleSelect={props.handleSelect}
-        handleJob={props.handleJob}
-      />
+      <JobForm {...props} />
     </div>
   );
 };
