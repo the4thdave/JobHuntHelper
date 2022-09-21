@@ -4,6 +4,7 @@ import { IJob } from '../types/index';
 
 interface StatsProps {
   jobData: Map<number, IJob>;
+  showEdit: () => void;
   handleDelete: (id: number) => void;
   showAdd: () => void;
 }
@@ -26,11 +27,13 @@ const Stats = (props: StatsProps): JSX.Element => {
               <th scope='col'>City</th>
               <th scope='col'>State</th>
               <th scope='col'>Date Applied</th>
+              <th scope='col'></th>
             </tr>
           </thead>
           <tbody>
             <TableRows
               jobData={props.jobData}
+              showEdit={props.showEdit}
               handleDelete={props.handleDelete}
             />
           </tbody>

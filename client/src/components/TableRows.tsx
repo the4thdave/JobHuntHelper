@@ -3,6 +3,7 @@ import { IJob } from '../types/index';
 
 interface TableRowProps {
   jobData: Map<number, IJob>;
+  showEdit: () => void;
   handleDelete: (id: number) => void;
 }
 
@@ -13,7 +14,7 @@ const TableRows = (props: TableRowProps): JSX.Element => {
     tableRows.push(
       <tr key='1'>
         <th>No job data available</th>
-        <td>Click &quot;Go Back&quot; and try adding a new job!</td>
+        <td>Click &quot;Add Job&quot; and add a new job!</td>
       </tr>,
     );
   } else {
@@ -27,7 +28,13 @@ const TableRows = (props: TableRowProps): JSX.Element => {
           <td>{props.jobData?.get(i)?.state}</td>
           <td>{props.jobData?.get(i)?.date}</td>
           <td>
-            <button onClick={() => props.handleDelete(i)}>Delete</button>
+            <button className='btn btn-secondary btn-sm'>Edit</button>
+            <button
+              className='btn btn-danger btn-sm ms-2'
+              onClick={() => props.handleDelete(i)}
+            >
+              Delete
+            </button>
           </td>
         </tr>,
       );

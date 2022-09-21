@@ -9,6 +9,7 @@ const Home = (): JSX.Element => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [jobData, setJobData] = React.useState<Map<number, IJob>>(new Map());
   const [showAdd, setShowAdd] = React.useState<boolean>(false);
+  const [showEdit, setShowEdit] = React.useState<boolean>(false);
 
   const updateJobData = (jobs: IJob[]) => {
     const newMap = new Map();
@@ -54,6 +55,7 @@ const Home = (): JSX.Element => {
       {!isLoading && !showAdd && (
         <Stats
           jobData={jobData}
+          showEdit={() => setShowEdit(true)}
           handleDelete={handleDelete}
           showAdd={() => setShowAdd(true)}
         />
