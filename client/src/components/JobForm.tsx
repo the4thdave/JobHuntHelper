@@ -1,24 +1,32 @@
 import * as React from 'react';
+import { IJob, IReqPayload } from '../types/index';
 
 interface JobFormProps {
-  handleWelcome: () => void;
-  handleAdd: () => void;
-  handleSelect: () => void;
-  handleJob: (
-    company: string,
-    jobTitle: string,
-    city: string,
-    state: string,
-    strDateApplied: string,
-  ) => void;
+  jobData: Map<number, IJob>;
+  showStats: () => void;
+  handleAdd: (payload: IReqPayload) => void;
 }
 
 const JobForm = (props: JobFormProps): JSX.Element => {
-  const [company, setCompany] = React.useState('');
-  const [jobTitle, setJobTitle] = React.useState('');
-  const [city, setCity] = React.useState('');
-  const [locState, setLocState] = React.useState('');
-  const [strDateApplied, setDateApplied] = React.useState('');
+  const [company, setCompany] = React.useState<string>('');
+  const [jobTitle, setJobTitle] = React.useState<string>('');
+  const [city, setCity] = React.useState<string>('');
+  const [locState, setLocState] = React.useState<string>('');
+  const [dateApplied, setDateApplied] = React.useState<string>('');
+
+  const onSave = () => {
+    const nextId = props.jobData.size + 1;
+
+    const payload: IReqPayload = {
+      id: nextId,
+      company: company,
+      position: jobTitle,
+      city: city,
+      state: locState,
+      date: dateApplied,
+    };
+    props.handleAdd(payload);
+  };
 
   return (
     <form>
@@ -94,10 +102,7 @@ const JobForm = (props: JobFormProps): JSX.Element => {
       </div>
 
       <button
-        onClick={() => {
-          props.handleWelcome();
-          props.handleAdd();
-        }}
+        onClick={props.showStats}
         type='button'
         className='btn btn-secondary me-2'
       >
@@ -106,8 +111,9 @@ const JobForm = (props: JobFormProps): JSX.Element => {
 
       <button
         onClick={() => {
-          props.handleJob(company, jobTitle, city, locState, strDateApplied);
-          props.handleSelect();
+          onSave();
+          alert('Job info saved');
+          props.showStats();
         }}
         type='button'
         className='btn btn-success'

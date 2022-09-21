@@ -13,11 +13,11 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  const { company, position, city, state, date } = req.body;
+  const { id, company, position, city, state, date } = req.body;
 
   pool.query(
-    'INSERT INTO jobs (company, position, city, state, date) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-    [company, position, city, state, date],
+    'INSERT INTO jobs (id, company, position, city, state, date) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+    [id, company, position, city, state, date],
     (err, result) => {
       if (err) {
         return next(err);
