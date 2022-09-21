@@ -6,33 +6,33 @@ This project was started to help track my job hunt statistics, and it can help y
 
 Click on the green "Code" button above (near the About section) and copy the HTTPS link.
 
-Next, open your terminal and type
+Next, open your terminal and enter:
 
 ```
 $ git clone {the HTTPS link copied earlier}
 ```
 
-Then, cd into the new folder and type
+Then, cd into the new folder and use this command to install the required dependencies:
 
 ```
 $ npm install
 ```
 
-(This will install the required dependencies)
-
-Then, you will need to install PostgreSQL on your computer and set up a database and table.
+Then, you will need to install PostgreSQL on your computer.
 
 [Click here to download PostgreSQL](https://www.postgresql.org/download/)
 
-Once you have downloaded and installed PostgreSQL, you will need to create a database and run it on port 5432. Then, create a table named "api" so that it will work with this app.
+Once you have downloaded and installed PostgreSQL, you will need to create a database and run it on port 5432.
 
-Next, you must run the client with:
+Then, create a table named "api" so that it will work with this app.
+
+Next, use this command to run the client:
 
 ```
 $ npm start
 ```
 
-Lastly, you must run the server with:
+Lastly, use this command to run the server:
 
 ```
 $ npm run dev
