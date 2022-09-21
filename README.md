@@ -22,9 +22,9 @@ Then, you will need to install PostgreSQL on your computer.
 
 [Click here to download PostgreSQL](https://www.postgresql.org/download/)
 
-Once you have downloaded and installed PostgreSQL, you will need to create a database and run it on port 5432.
+Once you have downloaded and installed PostgreSQL, create a database named "api" and run it on port 5432.
 
-Then, create a table named "api" so that it will work with this app.
+Then, create a table named "jobs" so that it will work with this app.
 
 Next, use this command to run the client:
 
