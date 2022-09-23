@@ -64,6 +64,7 @@ const JobForm = (props: JobFormProps): JSX.Element => {
           id='floatingInput'
           aria-label='company'
           placeholder='company'
+          value={company}
           onChange={e => setCompany(e.target.value)}
         />
         <label htmlFor='floatingInput'>Company</label>
@@ -76,6 +77,7 @@ const JobForm = (props: JobFormProps): JSX.Element => {
           id='floatingInput'
           aria-label='job-title'
           placeholder='Job Title'
+          value={jobTitle}
           onChange={e => setJobTitle(e.target.value)}
         />
         <label htmlFor='floatingInput'>Job Title</label>
@@ -91,6 +93,7 @@ const JobForm = (props: JobFormProps): JSX.Element => {
                 id='floatingInput'
                 aria-label='city'
                 placeholder='City'
+                value={city}
                 onChange={e => setCity(e.target.value)}
               />
               <label htmlFor='floatingInput'>City</label>
@@ -104,6 +107,7 @@ const JobForm = (props: JobFormProps): JSX.Element => {
                 id='floatingInput'
                 aria-label='state'
                 placeholder='State'
+                value={locState}
                 onChange={e => setLocState(e.target.value)}
               />
               <label htmlFor='floatingInput'>State</label>
@@ -119,12 +123,14 @@ const JobForm = (props: JobFormProps): JSX.Element => {
           id='floatingInput'
           aria-label='date-applied'
           placeholder='Date Applied'
+          value={dateApplied}
           onChange={e => setDateApplied(e.target.value)}
         />
         <label htmlFor='floatingInput'>Date Applied</label>
       </div>
       <button
-        onClick={() => {
+        onClick={e => {
+          e && e.preventDefault();
           onSave();
           alert('Job info saved!');
           props.onHide();

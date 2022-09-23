@@ -26,8 +26,9 @@ const Home = (): JSX.Element => {
         'http://localhost:3000/jobs',
       );
       updateJobData(response.data);
-    } catch {
-      throw 'An error has occurred';
+    } catch (err) {
+      /* eslint-disable-next-line no-console */
+      console.log(err);
     }
   };
 
