@@ -3,7 +3,7 @@ import JobForm from './JobForm';
 import { IJob, IReqPayload } from '../types/index';
 import Modal from 'react-bootstrap/Modal';
 
-interface AddJobProps {
+export interface AddJobProps {
   jobData: Map<number, IJob>;
   handleAdd: (payload: IReqPayload) => void;
   handleEdit: (payload: IReqPayload) => void;
