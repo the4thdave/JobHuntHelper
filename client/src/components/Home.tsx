@@ -1,15 +1,15 @@
 import * as React from 'react';
 import Stats from './Stats';
-import AddJob from './AddJob';
+import AddJobModal from './AddJobModal';
 import { IJob, IReqPayload } from '../types/index';
 import axios, { AxiosResponse } from 'axios';
-import { addJob, deleteJob } from '../utils/jobUtil';
+import { addJob, deleteJob, editJob } from '../utils/jobUtil';
+import NoJobs from './NoJobs';
 
 const Home = (): JSX.Element => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [jobData, setJobData] = React.useState<Map<number, IJob>>(new Map());
   const [showAdd, setShowAdd] = React.useState<boolean>(false);
-  const [showEdit, setShowEdit] = React.useState<boolean>(false);
 
   const updateJobData = (jobs: IJob[]) => {
     const newMap = new Map();
@@ -44,6 +44,11 @@ const Home = (): JSX.Element => {
     setIsLoading(true);
   };
 
+  const handleEdit = (payload: IReqPayload) => {
+    editJob(payload);
+    setIsLoading(true);
+  };
+
   const handleDelete = (id: number) => {
     deleteJob(id);
     setIsLoading(true);
@@ -51,20 +56,33 @@ const Home = (): JSX.Element => {
 
   return (
     <div>
-      {isLoading && <div>Loading</div>}
-      {!isLoading && !showAdd && (
+      {isLoading && (
+        <div className='text-center mt-10'>
+          <div className='spinner-border' role='status'>
+            <span className='visually-hidden'>Loading...</span>
+          </div>
+        </div>
+      )}
+      {!isLoading && jobData.size === 0 && (
+        <NoJobs showAdd={() => setShowAdd(true)} />
+      )}
+      {!isLoading && jobData.size > 0 && (
         <Stats
           jobData={jobData}
-          showEdit={() => setShowEdit(true)}
+          handleEdit={handleEdit}
           handleDelete={handleDelete}
           showAdd={() => setShowAdd(true)}
         />
       )}
       {showAdd && (
-        <AddJob
+        <AddJobModal
           jobData={jobData}
-          showStats={() => setShowAdd(false)}
           handleAdd={handleAdd}
+          handleEdit={handleEdit}
+          show={showAdd}
+          onHide={() => setShowAdd(false)}
+          editMode={false}
+          jobId={-1}
         />
       )}
     </div>
