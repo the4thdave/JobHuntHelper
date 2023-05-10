@@ -9,7 +9,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint --ext .ts --ext .tsx .",
-    "lint:fix": "eslint --ext .ts --ext .tsx --fix ."
+    "lint:fix": "eslint --ext .ts --ext .tsx --fix .",
+    "prettier": "prettier -c ."
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
