@@ -4,35 +4,64 @@ This project was started to help track my job hunt statistics, and it can help y
 
 ## Usage
 
-Click on the green "Code" button above (near the About section) and copy the HTTPS link.
+Follow these steps to get started:
 
-Next, open your terminal and enter:
+1. Clone the repo
 
 ```
-$ git clone {the HTTPS link copied earlier}
+git clone <URL>
 ```
 
-Then, cd into the new folder and use this command to install the required dependencies:
+2. Install dependencies 
 
 ```
 $ npm install
 ```
 
-Then, you will need to install PostgreSQL on your computer.
+3. Install PostgreSQL 
 
 [Click here to download PostgreSQL](https://www.postgresql.org/download/)
 
-Once you have downloaded and installed PostgreSQL, create a database named "api" and run it on port 5432.
+4. Setup database
 
-Then, create a table named "jobs" so that it will work with this app.
+Enter into PostgreSQL CLI
 
-Next, use this command to run the client:
+```
+psql
+```
+
+Create a database named "api" 
+
+```
+CREATE DATABASE api;
+```
+
+Connect to database
+
+```
+\c api
+```
+
+Create a table named "jobs" 
+
+```
+CREATE TABLE jobs (id INT, company VARCHAR(255), position VARCHAR(255), city VARCHAR(255), state VARCHAR(255), date DATE);
+```
+
+Set up user for database connection
+
+```
+CREATE USER user1 WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON TABLE jobs TO user1;
+```
+
+5. Run the client:
 
 ```
 $ npm start
 ```
 
-Lastly, use this command to run the server:
+6. Run the server
 
 ```
 $ npm run dev
